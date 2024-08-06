@@ -1,0 +1,16 @@
+soma = 0
+count = 0
+maior = 0
+while True:
+  n= int(input("digite um numero:"))
+  if n < 0:
+    break
+  soma+=n
+  count+=1
+  if n > maior:
+    maior = n
+
+me = soma/count
+print(f"Soma dos números positivos:{soma}")
+print(f"Média aritmética dos números positivos: {me}")
+print(f"Maior número positivo: {maior}")
