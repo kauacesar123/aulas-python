@@ -1,0 +1,22 @@
+while True:
+  preco_total = float(input("Digite o preço total da venda: R$ "))
+  forma_pagamento = int(input("Digite a forma de pagamento:\n"
+                            "1 - À vista (em espécie)\n"
+                            "2 - Cartão de débito\n"
+                            "3 - Cartão de crédito (vencimento)\n"
+                            "0 - Sair\n"
+                            "Opção: "))
+
+  if forma_pagamento == 0:
+      break
+
+  desconto = 0
+  if forma_pagamento == 1:
+      desconto = 0.15
+  elif forma_pagamento == 2:
+      desconto = 0.10
+  elif forma_pagamento == 3:
+      desconto = 0.05
+
+  valor_final = preco_total - (preco_total * desconto)
+  print(f"O valor final a ser pago é: R$ {valor_final:.2f}")
