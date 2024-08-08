@@ -1,0 +1,26 @@
+def progressao_aritmetica(a1, n, r):
+  """
+  Calcula os termos de uma Progressão Aritmética (PA).
+
+  Args:
+      a1 (int): O primeiro termo da PA.
+      n (int): A quantidade de termos da PA.
+      r (int): A razão da PA.
+
+  Returns:
+      list: Uma lista com os termos da PA.
+  """
+  pa = []
+  for i in range(n):
+    an = a1 + (i * r)
+    pa.append(an)
+  return pa
+
+# Solicita os dados ao usuário
+a1 = int(input("Digite o primeiro termo da PA: "))
+n = int(input("Digite a quantidade de termos da PA: "))
+r = int(input("Digite a razão da PA: "))
+
+# Calcula e imprime a PA
+pa = progressao_aritmetica(a1, n, r)
+print(f"A PA é: {pa}")''
