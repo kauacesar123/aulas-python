@@ -1,0 +1,9 @@
+maio=0
+nome=[]
+preco=[]
+for i in range(5):
+    nome = input(f"Digite nome do  medicamento{i+1}º: ")
+    preco= float(input(f"Digite preço do  medicamento{i+1}º: "))
+    if preco > maio:
+        maio = preco
+print(f"nome e o preço do medicamento maiois barato e {nome} e o preço e {maio:.2f}")
