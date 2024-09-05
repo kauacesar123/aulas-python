@@ -1,0 +1,71 @@
+def adiciono_prova(agenda):
+  """Adiciona uma prova à agenda."""
+  print("ex: prova no dia 8/5/2024")
+  data = input("Digite a data da prova como no exemplo:  ")
+  horario = input("Digite o horário da prova (horas:minutos):  ")
+  descricao = input("Digite a descrição da prova:  ")
+  #adicionar um compromisso à agenda
+  agenda[data] = agenda.get(data, {}) 
+  
+  agenda[data][horario] = descricao
+  print("Prova adicionada com sucesso!")
+def remover_prova(agenda):
+  """Remove a prova da agenda."""
+  print("para estudos: estudar nos dias da semana segunda, quarta e sexta")
+  print("para prova: prova no dia 8/5/2024")
+  data = input("Digite a data da prova a ser removido : ") 
+  horario = input("Digite o horário do compromisso a ser removido (horas:minutos): ")
+  #verifica se um compromisso específico está presente na agenda e, se estiver, o remove.
+  if data in agenda and horario in agenda[data]:
+    del agenda[data][horario]
+    print("Compromisso removido com sucesso!")
+  else:
+    print("Compromisso não encontrado.")
+def visualizar_prova(agenda):
+  """Exibe as provas na agenda."""
+  if not agenda:
+    print("Sua agenda está vazia.")
+    return
+  #Esse bloco de código é responsável por exibir o conteúdo da agenda de forma organizada e clara.
+  for data, compromissos in agenda.items():
+    print(f"\n{data}:")
+    for horario, descricao in compromissos.items():
+      print(f"  {horario}: {descricao}")
+def adicionar_estudo(agenda):
+  """adicionar estudo a agenda."""
+  print("ex: estudar nos dias da semana segunda, quarta e sexta")
+  sema_estudo = input("Digite quais dias da semana você quer estudar como no exemplo: ")
+  vezes = int(input("Digite quantas semanas seguidas você quer estudar: "))
+  print("ex: 12:00 as 14:00")
+  horario1 = input("Digite o horário do estudo (horas:minutos): ")
+  descricao1 = input("O que você quer estudar?: ")
+  agenda[sema_estudo] = agenda.get(sema_estudo, {})
+  agenda[sema_estudo][horario1] = descricao1
+  print(f"Você quer estudar {descricao1} as {horario1} nos dias da semana(s) {sema_estudo}")
+  print("Estudo adicionado com sucesso!")
+
+def main():
+  """Função principal da agenda."""
+  agenda = {}  
+  while True:
+    print("\nMenu:")
+    print("1. Adicionar prova na agenda")
+    print("2. Visualizar agenda ")
+    print("3. Remover agenda")
+    print("4. Adicionar estudo")
+    print("5.  Sair")
+    opcao = input("Digite a opção desejada: ")
+    if opcao == '1':
+      adiciono_prova(agenda)
+    elif opcao == '2':
+      visualizar_prova(agenda)
+    elif opcao == '3':
+      remover_prova(agenda)
+    elif opcao == '4':
+      adicionar_estudo(agenda)
+    elif opcao == '5':
+      break
+    else:
+      print("Opção inválida.")
+if __name__ == "__main__":
+  main()
